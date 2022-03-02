@@ -9,15 +9,51 @@ const { NotImplementedError } = require('../extensions/index.js');
  *
  * @example
  * 
- * createDreamTeam(['Matt', 'Ann', 'Dmitry', 'Max']) => 'ADMM'
- * createDreamTeam(['Olivia', 1111, 'Lily', 'Oscar', true, null]) => 'LOO'
  *
  */
-function createDreamTeam(/* members */) {
-  throw new NotImplementedError('Not implemented');
-  // remove line with error and write your code here
+
+
+function createDreamTeam( members ) {
+  if (typeof members !== 'object' || members === null) {
+    return false
+  } else {
+    if(members.length < 2 || !(Array.isArray(members))) {
+      // console.log(Array.isArray(members))
+      return false;
+    }
+  }
+
+  let mem = [];
+  let str = [];
+  members.forEach(function(item) {
+    if (typeof item === 'string') {
+      mem.push(item);
+    }
+  })
+
+    mem.forEach(function(item) {
+      for (let i = 0; i < item.length; i++) {
+        if (item[i] !== ' ') {
+          str.push(item[i].toUpperCase()) ;
+          break;
+        }
+      }
+
+    })
+    console.log(str)
+
+
+
+
+  return str.sort().join("");
 }
 
 module.exports = {
   createDreamTeam
 };
+
+//  console.log(createDreamTeam(['Matt', 'Ann', 'Dmitry', 'Max']))
+ console.log(createDreamTeam({ 'foo': 'bar' }))
+
+
+// BDETV
