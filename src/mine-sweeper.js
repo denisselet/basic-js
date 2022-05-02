@@ -24,21 +24,47 @@ const { NotImplementedError } = require('../extensions/index.js');
  * ]
  */
 function minesweeper(matrix) {
-  if (matrix[0][0] === true) {
-    return [
-      [1, 2, 1],
-      [2, 1, 1],
-      [1, 1, 1],
-    ]
+  matrix[0][0] = matrix[0][1] + matrix[1][0] + matrix[1][1]
+  matrix[0][matrix.length-1] = matrix[0][matrix.length-2] + matrix[1][matrix.length-1] + matrix[1][matrix.length-2]
+  matrix[matrix.length-1][0] = matrix[matrix.length-1][1] + matrix[matrix.length-2][0] + matrix[matrix.length-2][1]
+  matrix[matrix.length-1][matrix.length-1] = matrix[matrix.length-1][matrix.length-2] + matrix[matrix.length-2][matrix.length-1] + matrix[matrix.length-2][matrix.length-2]
+  
+  
+  // matrix[0][2] = matrix
+
+
+
+  for(let i = 0; i < matrix.length; i++) {
+    for(let j = 0; j < matrix[i].length; j++) {
+
+
+
+
+
+
+
+
+    }
   }
-  if (matrix[0][0] === false) {
-    return [
-      [0, 0, 0],
-      [0, 0, 0],
-    ]
-  }
+
+  console.log(matrix)
 }
+
+
+ matrix = [
+    [true, false, false],
+    [false, true, false],
+    [false, false, false]
+   ]
+
+  //  matrix = [  
+  //  [false, false, false],
+  //  [false, false, false],
+  //  ]
+console.log(minesweeper(matrix))
 
 module.exports = {
   minesweeper
 };
+
+
